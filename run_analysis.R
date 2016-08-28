@@ -63,11 +63,11 @@
   
   ## Creates tidy data set with the average of each variable
   ## for each activity and each subject
-  tidied_data <- aggregate(required_data[,3:ncol(required_data)], by=list(subject_id=required_data$subject_id,activity_name=required_data$activity_name), FUN=mean, na.rm=TRUE)
+  tidy_data <- aggregate(required_data[,3:ncol(required_data)], by=list(subject_id=required_data$subject_id,activity_name=required_data$activity_name), FUN=mean, na.rm=TRUE)
   
   ## Cosmetics: adding "average" to data columns and ordering
-  for (i in 3:ncol(tidied_data)) {
-    colnames(tidied_data)[i] = paste("average_",colnames(tidied_data)[i], sep = "")
+  for (i in 3:ncol(tidy_data)) {
+    colnames(tidy_data)[i] = paste("average_",colnames(tidied_data)[i], sep = "")
     
   }
   
@@ -75,5 +75,5 @@
   
   
   ## Output tidied data into TXT and CSV formats
-  write.csv(tidied_data, "tidied_data.csv", row.names=FALSE)
-  write.table(tidied_data, "tidied_data.txt", row.names=FALSE)
+  write.csv(tidy_data, "tidy_data.csv", row.names=FALSE)
+  write.table(tidy_data, "tidy_data.txt", row.names=FALSE)
