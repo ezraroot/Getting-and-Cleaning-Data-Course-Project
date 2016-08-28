@@ -67,13 +67,13 @@
   
   ## Cosmetics: adding "average" to data columns and ordering
   for (i in 3:ncol(tidy_data)) {
-    colnames(tidy_data)[i] = paste("average_",colnames(tidied_data)[i], sep = "")
+    colnames(tidy_data)[i] = paste("average_",colnames(tidy_data)[i], sep = "")
     
   }
   
-  tidied_data <- tidied_data[order(tidied_data$subject_id,tidied_data$activity_name),]
+  tidy_data <- tidy_data[order(tidy_data$subject_id,tidy_data$activity_name),]
   
   
-  ## Output tidied data into TXT and CSV formats
+  ## Output tidy data into TXT and CSV formats
   write.csv(tidy_data, "tidy_data.csv", row.names=FALSE)
   write.table(tidy_data, "tidy_data.txt", row.names=FALSE)
